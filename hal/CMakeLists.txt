@@ -180,14 +180,6 @@ endif(WITH_MBEDTLS3)
 
 add_library (hal STATIC ${libhal_SRCS})
 
-add_library (hal-shared STATIC ${libhal_SRCS})
-
-target_compile_definitions(hal-shared PRIVATE EXPORT_FUNCTIONS_FOR_DLL)
-
-SET_TARGET_PROPERTIES(hal-shared PROPERTIES
-  COMPILE_FLAGS "-fPIC"
-)
-
 IF(UNIX)
   IF (CONFIG_SYSTEM_HAS_CLOCK_GETTIME)
      target_link_libraries (hal
@@ -211,7 +203,6 @@ ENDIF(MINGW)
 
 IF (MSVC)
   target_link_libraries(hal bcrypt)
-  target_link_libraries(hal-shared bcrypt)
 ENDIF()
 
 iF(WITH_WPCAP)
@@ -230,7 +221,7 @@ if(UNIX)
     set(BINDIR ${CMAKE_INSTALL_BINDIR})
 endif()
 
-install (TARGETS hal hal-shared
+install (TARGETS hal
 	RUNTIME DESTINATION ${BINDIR} COMPONENT Applications
 	ARCHIVE DESTINATION ${LIBDIR} COMPONENT Libraries
     LIBRARY DESTINATION ${LIBDIR} COMPONENT Libraries
