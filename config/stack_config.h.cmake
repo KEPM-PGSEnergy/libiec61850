@@ -72,7 +72,7 @@
 #cmakedefine01 CONFIG_INCLUDE_GOOSE_SUPPORT
 
 /* Set to 1 to include generic Sampled Values support in the build. Otherwise set to 0 */
-#define CONFIG_IEC61850_SAMPLED_VALUES_SUPPORT 1
+#define CONFIG_IEC61850_SAMPLED_VALUES_SUPPORT 0
 
 /* compile with support for R-GOOSE (mbedtls requried) */
 #cmakedefine01 CONFIG_IEC61850_R_GOOSE
@@ -119,7 +119,7 @@
 #define CONFIG_GOOSE_EVENT_RETRANSMISSION_INTERVAL 500
 
 /* The number of GOOSE retransmissions after an event */
-#define CONFIG_GOOSE_EVENT_RETRANSMISSION_COUNT 2
+#define CONFIG_GOOSE_EVENT_RETRANSMISSION_COUNT 5
 
 /* Define if GOOSE control block elements are writable (1) or read-only (0) */
 #define CONFIG_GOOSE_GOID_WRITABLE 0
@@ -138,7 +138,7 @@
 #define CONFIG_GOOSE_DEFAULT_VLAN_ID 0
 
 /* Configure the 16 bit APPID field in the GOOSE header */
-#define CONFIG_GOOSE_DEFAULT_APPID 0x1000
+#define CONFIG_GOOSE_DEFAULT_APPID 0x9
 
 /* Default destination MAC address for GOOSE */
 #define CONFIG_GOOSE_DEFAULT_DST_ADDRESS {0x01, 0x0c, 0xcd, 0x01, 0x00, 0x01}
@@ -168,7 +168,7 @@
 #cmakedefine CONFIG_IEC61850_SG_RESVTMS @CONFIG_IEC61850_SG_RESVTMS@
 
 /* include support for IEC 61850 log services */
-#cmakedefine01 CONFIG_IEC61850_LOG_SERVICE
+#define CONFIG_IEC61850_LOG_SERVICE 0
 
 /* include support for IEC 61850 service tracking */
 #cmakedefine01 CONFIG_IEC61850_SERVICE_TRACKING
@@ -194,7 +194,7 @@
 #define CONFIG_MMS_SUPPORT_VMD_SCOPE_NAMED_VARIABLES 0
 
 /* MMS virtual file store base path - where file services are looking for files */
-#define CONFIG_VIRTUAL_FILESTORE_BASEPATH "./vmd-filestore/"
+#define CONFIG_VIRTUAL_FILESTORE_BASEPATH "./files_61850/"
 
 /* Maximum number of open file per MMS connection (for MMS file read service) */
 #define CONFIG_MMS_MAX_NUMBER_OF_OPEN_FILES_PER_CONNECTION 5
@@ -218,7 +218,7 @@
 #define MMS_READ_SERVICE 1
 #define MMS_WRITE_SERVICE 1
 #define MMS_GET_NAME_LIST 1
-#define MMS_JOURNAL_SERVICE 1
+#define MMS_JOURNAL_SERVICE 0
 #define MMS_GET_VARIABLE_ACCESS_ATTRIBUTES 1
 #define MMS_DATA_SET_SERVICE 1
 #define MMS_DYNAMIC_DATA_SETS 1
